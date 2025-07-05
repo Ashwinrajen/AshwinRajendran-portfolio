@@ -57,17 +57,3 @@ function initMobileMenu() {
 
 // Initialize mobile menu
 initMobileMenu();
-
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector('.hero-content');
-    const robotContainer = document.querySelector('.robot-container');
-    
-    if (heroContent && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-        if (robotContainer) {
-            robotContainer.style.transform = `translateY(${scrolled * -0.2}px) translateY(-20px)`;
-        }
-    }
-});

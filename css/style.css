@@ -769,3 +769,51 @@ footer {
     background: var(--primary-color);
     filter: blur(40px);
 }
+
+/* Parallax section wrapper */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating elements */
+.floating-element {
+    position: absolute;
+    opacity: 0.05;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* Circuit lines pattern */
+.circuit-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, transparent 48%, rgba(0, 212, 255, 0.1) 49%, rgba(0, 212, 255, 0.1) 51%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, rgba(0, 212, 255, 0.1) 49%, rgba(0, 212, 255, 0.1) 51%, transparent 52%);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Gear background */
+.gear-bg {
+    position: absolute;
+    font-size: 200px;
+    color: var(--primary-color);
+    opacity: 0.03;
+    animation: rotate 20s linear infinite;
+}
+
+/* Ensure parallax-fade starts invisible */
+.parallax-fade {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.parallax-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease;
+}

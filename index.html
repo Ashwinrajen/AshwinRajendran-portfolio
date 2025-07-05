@@ -33,6 +33,11 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="circuit-lines parallax-layer" data-speed="0.1"></div>
+        <div class="floating-element parallax" data-speed="0.15" style="top: 20%; left: 10%; font-size: 40px; color: var(--primary-color);">
+            <i class="fas fa-microchip"></i>
+        </div>
+
         <!-- Add floating shapes -->
         <div class="parallax-shapes">
             <div class="shape parallax" data-speed="0.2" style="width: 300px; height: 300px; top: 10%; left: 10%;"></div>
@@ -60,7 +65,7 @@
             </div>
             <div class="hero-visual">
                 <div class="robot-container parallax-mouse">
-                    <!-- Your robot icon -->
+                    <!-- robot icon here -->
                     <div class="robot-icon"><i class="fas fa-robot"></i></div>
                 </div>
             </div>
@@ -69,6 +74,12 @@
 
     <!-- About Section -->
     <section id="about" class="about parallax-bg" data-speed="0.5">
+        <div class="gear-bg parallax" data-speed="0.1" style="top: -100px; right: -100px;">
+            <i class="fas fa-cog"></i>
+        </div>
+        <div class="gear-bg parallax" data-speed="-0.1" style="bottom: -150px; left: -50px; animation-duration: 30s;">
+            <i class="fas fa-cog"></i>
+        </div>
         <div class="section-container">
             <div class="section-header fade-in parallax-fade">
                 <h2 class="section-title">About Me</h2>
@@ -127,7 +138,12 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects parallax-section">
+        <div class="parallax-shapes">
+            <div class="shape parallax" data-speed="0.1" style="width: 200px; height: 200px; top: 10%; right: 5%; background: linear-gradient(45deg, var(--primary-color), transparent); transform: rotate(45deg);"></div>
+            <div class="shape parallax" data-speed="0.2" style="width: 150px; height: 150px; bottom: 20%; left: 10%; background: linear-gradient(45deg, var(--secondary-color), transparent); border-radius: 20%;"></div>
+        </div>
+        <div class="circuit-lines parallax-layer" data-speed="0.05" style="opacity: 0.1;"></div>
         <div class="section-container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Featured Projects</h2>
@@ -140,7 +156,13 @@
     </section>
 
     <!-- Research Section -->
-    <section id="research" class="research">
+    <section id="research" class="research parallax-section">
+        <div class="floating-element parallax" data-speed="0.2" style="top: 15%; right: 10%; font-size: 50px; color: var(--secondary-color); opacity: 0.1;">
+            <i class="fas fa-flask"></i>
+        </div>
+        <div class="floating-element parallax" data-speed="0.15" style="bottom: 25%; left: 5%; font-size: 40px; color: var(--primary-color); opacity: 0.1;">
+            <i class="fas fa-book"></i>
+        </div>
         <div class="section-container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Research & Publications</h2>
@@ -153,7 +175,10 @@
     </section>
 
     <!-- Experience Timeline -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience parallax-section">
+        <div class="parallax-layer" data-speed="0.1">
+            <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, var(--primary-color), transparent); opacity: 0.2;"></div>
+        </div>
         <div class="section-container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Professional Journey</h2>
@@ -166,7 +191,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact parallax-section">
+        <div class="parallax-layer" style="background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);" data-speed="0.1"></div>
+        <div class="parallax-layer" style="background: radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);" data-speed="0.15"></div>
         <div class="contact-container">
             <div class="contact-info fade-in">
                 <h3>Let's Build Something Amazing</h3>

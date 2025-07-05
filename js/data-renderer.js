@@ -1,5 +1,5 @@
 // ==========================================
-// DATA RENDERER - Add this to your main.js or create a new file
+// DATA RENDERER 
 // ==========================================
 
 // Function to render projects
@@ -9,7 +9,7 @@ function renderProjects() {
 
     portfolioData.projects.forEach(project => {
         const projectCard = document.createElement('div');
-        projectCard.className = 'project-card fade-in';
+        projectCard.className = 'project-card fade-in parallax-fade';
         
         // Determine which links to show based on available data
         let linksHTML = '<div class="project-links">';
@@ -61,7 +61,7 @@ function renderResearch() {
 
     portfolioData.research.forEach(research => {
         const researchCard = document.createElement('div');
-        researchCard.className = 'research-card fade-in';
+        researchCard.className = 'research-card fade-in parallax-fade';
         
         researchCard.innerHTML = `
             <h3>${research.title}</h3>
@@ -81,7 +81,7 @@ function renderExperience() {
 
     portfolioData.experience.forEach((exp, index) => {
         const timelineItem = document.createElement('div');
-        timelineItem.className = 'timeline-item fade-in';
+        timelineItem.className = 'timeline-item fade-in parallax-fade';
         
         timelineItem.innerHTML = `
             <div class="timeline-content">

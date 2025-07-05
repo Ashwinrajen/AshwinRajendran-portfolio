@@ -2,8 +2,6 @@
 // PARALLAX SCROLLING IMPLEMENTATION
 // ==========================================
 
-// 1. ADD TO YOUR animations.js FILE (or create parallax.js)
-
 // Parallax effect handler
 function initParallax() {
     // Get all parallax elements
@@ -50,6 +48,25 @@ function initParallax() {
             element.style.transform = `translateY(${(1 - opacity) * 50}px)`;
         });
     });
+
+    function initParallaxFade() {
+        const parallaxFadeElements = document.querySelectorAll('.parallax-fade');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        parallaxFadeElements.forEach(element => {
+            fadeObserver.observe(element);
+        });
+    }
 }
 
 // Advanced parallax with multiple layers
@@ -92,11 +109,11 @@ function initMouseParallax() {
     }
 }
 
-// Initialize all parallax effects
 document.addEventListener('DOMContentLoaded', function() {
     initParallax();
     initLayeredParallax();
     initMouseParallax();
+    initParallaxFade(); 
 });
 
 // Performance optimization with throttling
