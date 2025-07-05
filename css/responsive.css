@@ -174,3 +174,13 @@
         display: block;
     }
 }
+
+/* Disable parallax on mobile for performance */
+@media (max-width: 768px) {
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+    .parallax, .parallax-layer, .parallax-shapes {
+        display: none;
+    }
+}
