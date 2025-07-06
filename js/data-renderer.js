@@ -83,16 +83,57 @@ function renderExperience() {
         const timelineItem = document.createElement('div');
         timelineItem.className = 'timeline-item fade-in parallax-fade';
         
+        // Check if this experience has detailed sections
+        let detailsHTML = '';
+        let expandButton = '';
+        if (exp.details) {
+            expandButton = '<button class="expand-btn">View Details <i class="fas fa-chevron-down"></i></button>';
+            detailsHTML = '<div class="experience-details collapsed">';
+            for (const [heading, bullets] of Object.entries(exp.details)) {
+                detailsHTML += `
+                    <div class="detail-section">
+                        <h4 class="detail-heading">${heading}</h4>
+                        <ul class="detail-list">
+                            ${bullets.map(bullet => `<li>${bullet}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+            detailsHTML += '</div>';
+        }
+        
         timelineItem.innerHTML = `
             <div class="timeline-content">
                 <p class="timeline-date">${exp.date}</p>
                 <h3>${exp.position}</h3>
-                <p><strong>${exp.company}</strong></p>
-                <p>${exp.description}</p>
+                <p class="company-name"><strong>${exp.company}</strong></p>
+                <p class="experience-description">${exp.description}</p>
+                ${expandButton}
+                ${detailsHTML}
             </div>
         `;
         
         timeline.appendChild(timelineItem);
+    });
+    
+    // Add click handlers for expand buttons
+    document.querySelectorAll('.expand-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const details = this.nextElementSibling;
+            const icon = this.querySelector('i');
+            
+            if (details.classList.contains('collapsed')) {
+                details.classList.remove('collapsed');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+                this.innerHTML = 'Hide Details <i class="fas fa-chevron-up"></i>';
+            } else {
+                details.classList.add('collapsed');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+                this.innerHTML = 'View Details <i class="fas fa-chevron-down"></i>';
+            }
+        });
     });
 }
 

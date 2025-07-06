@@ -513,46 +513,52 @@ nav.scrolled {
 }
 
 /* ==========================================
-   EXPERIENCE TIMELINE STYLES
+   UPDATED EXPERIENCE TIMELINE STYLES
    ========================================== */
 
-.experience {
+   .experience {
     padding: 5rem 2rem;
     background: white;
 }
 
+/* Make the timeline container full width */
 .timeline {
     position: relative;
     padding: 2rem 0;
-    max-width: 800px;
+    max-width: 1200px; /* Increased from 800px */
     margin: 0 auto;
 }
 
+/* Update timeline line position */
 .timeline::before {
     content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 40px; /* Changed from 50% to fixed left position */
+    transform: none; /* Remove translateX */
     width: 2px;
     height: 100%;
     background: var(--primary-color);
 }
 
+/* Make all timeline items align to the right of the line */
 .timeline-item {
     position: relative;
-    padding: 2rem;
-    width: 45%;
-    margin-bottom: 2rem;
+    padding: 2rem 2rem 2rem 80px; /* Add left padding for the line */
+    width: 100%; /* Full width instead of 45% */
+    margin-bottom: 3rem; /* Increased spacing */
 }
 
+/* Remove the alternating layout */
 .timeline-item:nth-child(odd) {
-    margin-left: auto;
+    margin-left: 0; /* Remove auto margin */
 }
 
+/* Update timeline dots position */
 .timeline-item::before {
     content: '';
     position: absolute;
     top: 2rem;
+    left: 30px; /* Fixed position from left */
     width: 20px;
     height: 20px;
     background: var(--primary-color);
@@ -561,35 +567,193 @@ nav.scrolled {
     box-shadow: var(--shadow);
 }
 
-.timeline-item:nth-child(odd)::before {
-    left: -60px;
-}
-
+/* Remove alternating dot positions */
+.timeline-item:nth-child(odd)::before,
 .timeline-item:nth-child(even)::before {
-    right: -60px;
+    left: 30px; /* Same position for all */
+    right: auto;
 }
 
+/* Make timeline content take full available width */
 .timeline-content {
     background: var(--bg-section);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    max-width: none; /* Remove max-width constraint */
+    width: 100%;
+    transition: all 0.3s;
 }
 
+.timeline-content:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+}
+
+/* Enhanced typography for better readability */
 .timeline-date {
     color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 0.5rem;
+    font-size: 1.1rem;
 }
 
 .timeline-content h3 {
     color: var(--text-dark);
     margin-bottom: 0.5rem;
+    font-size: 1.8rem;
 }
 
-.timeline-content p {
+.company-name {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.experience-description {
     color: var(--text-light);
-    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   EXPERIENCE DETAILS STYLES - UPDATED
+   ========================================== */
+
+.experience-details {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.detail-section {
+    background: rgba(0, 212, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.detail-heading {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-heading::before {
+    content: '▸';
+    font-size: 1.5rem;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+.detail-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Expandable button styling */
+.expand-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.expand-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+}
+
+.expand-btn i {
+    transition: transform 0.3s;
+}
+
+.experience-details.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.experience-details:not(.collapsed) {
+    max-height: 3000px;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .timeline {
+        padding: 2rem 0;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline-item::before {
+        left: 10px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .detail-heading {
+        font-size: 1.1rem;
+    }
+    
+    .detail-list li {
+        font-size: 0.95rem;
+        padding-left: 1.5rem;
+    }
+    
+    .experience-details {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ==========================================
