@@ -3,6 +3,9 @@
 A modern, responsive portfolio website showcasing my projects, research, and professional experience.
 --Base Portfolio--(To be Updated soon)
 
+My portfolio is live at:
+https://ashwinrajen.github.io/AshwinRajendran-portfolio/
+
 ## Features
 
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
