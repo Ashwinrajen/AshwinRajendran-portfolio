@@ -9,47 +9,71 @@ function renderProjects() {
 
     portfolioData.projects.forEach(project => {
         const projectCard = document.createElement('div');
-        projectCard.className = 'project-card fade-in parallax-fade';
+        if (project.isFeatured) {
+            projectCard.className = 'project-card fade-in parallax-fade';
         
-        // Determine which links to show based on available data
-        let linksHTML = '<div class="project-links">';
-        if (project.demoLink) {
-            linksHTML += `<a href="${project.demoLink}" class="project-link">View Demo →</a>`;
-        }
-        if (project.githubLink) {
-            linksHTML += `<a href="${project.githubLink}" class="project-link">GitHub →</a>`;
-        }
-        if (project.paperLink) {
-            linksHTML += `<a href="${project.paperLink}" class="project-link">Research Paper →</a>`;
-        }
-        if (project.videoLink) {
-            linksHTML += `<a href="${project.videoLink}" class="project-link">Video →</a>`;
-        }
-        if (project.caseStudyLink) {
-            linksHTML += `<a href="${project.caseStudyLink}" class="project-link">Case Study →</a>`;
-        }
-        if (project.specsLink) {
-            linksHTML += `<a href="${project.specsLink}" class="project-link">Technical Specs →</a>`;
-        }
-        if (project.docsLink) {
-            linksHTML += `<a href="${project.docsLink}" class="project-link">Documentation →</a>`;
-        }
-        if (project.simulationLink) {
-            linksHTML += `<a href="${project.simulationLink}" class="project-link">Simulation →</a>`;
-        }
-        linksHTML += '</div>';
-
-        projectCard.innerHTML = `
-            <div class="project-image">${project.icon}</div>
+            // Determine which links to show based on available data
+            let linksHTML = '<div class="project-links">';
+            if (project.demoLink) {
+                linksHTML += `<a href="${project.demoLink}" class="project-link">View Demo →</a>`;
+            }
+            if (project.githubLink) {
+                linksHTML += `<a href="${project.githubLink}" class="project-link">GitHub →</a>`;
+            }
+            if (project.paperLink) {
+                linksHTML += `<a href="${project.paperLink}" class="project-link">Research Paper →</a>`;
+            }
+            if (project.videoLink) {
+                linksHTML += `<a href="${project.videoLink}" class="project-link">Video →</a>`;
+            }
+            if (project.caseStudyLink) {
+                linksHTML += `<a href="${project.caseStudyLink}" class="project-link">Case Study →</a>`;
+            }
+            if (project.specsLink) {
+                linksHTML += `<a href="${project.specsLink}" class="project-link">Technical Specs →</a>`;
+            }
+            if (project.docsLink) {
+                linksHTML += `<a href="${project.docsLink}" class="project-link">Documentation →</a>`;
+            }
+            if (project.simulationLink) {
+                linksHTML += `<a href="${project.simulationLink}" class="project-link">Simulation →</a>`;
+            }
+            linksHTML += '</div>';
+    
+            projectCard.innerHTML = `
+                <div class="project-image">
+                    ${project.image ? `<img src="${project.image}" alt="${project.title}" style="width: 100%; height: 100%; object-fit: cover;" />` 
+                                    : project.icon || ''}
+                </div>
+            
+                <div class="project-content">
+                    ${project.category ? `<span class="project-category">${project.category}</span>` : ''}
+                    <h3 class="project-title">${project.title}</h3>
+                    ${project.tech ? `<p class="project-tech">${project.tech}</p>` : ''}
+                    <p class="project-description">${project.description}</p>
+                    ${linksHTML}
+                </div>
+            `;
+        } 
+        if (!project.isFeatured && project.subprojects) {
+            projectCard.className = 'project-card minimal-project';
+            const links = project.subprojects.map(sub =>
+              `<li><strong>${sub.title}</strong> – <a href="${sub.link}" class="project-link">GitHub →</a></li>`
+            ).join('');
+            projectCard.innerHTML = `
             <div class="project-content">
-                <span class="project-category">${project.category}</span>
-                <h3 class="project-title">${project.title}</h3>
-                <p class="project-tech">${project.tech}</p>
-                <p class="project-description">${project.description}</p>
-                ${linksHTML}
+              <h3 class="project-title">${project.title}</h3>
+              <ul>
+                ${project.subprojects.map(sub =>
+                  `<li>
+                    ${sub.title}${sub.link ? ` – <a href="${sub.link}" class="project-link">GitHub →</a>` : ''}
+                  </li>`
+                ).join('')}
+              </ul>
             </div>
-        `;
-        
+          `;
+          
+        }
         projectsGrid.appendChild(projectCard);
     });
 }
@@ -103,15 +127,18 @@ function renderExperience() {
         }
         
         timelineItem.innerHTML = `
-            <div class="timeline-content">
-                <p class="timeline-date">${exp.date}</p>
-                <h3>${exp.position}</h3>
-                <p class="company-name"><strong>${exp.company}</strong></p>
-                <p class="experience-description">${exp.description}</p>
-                ${expandButton}
-                ${detailsHTML}
-            </div>
-        `;
+        <div class="timeline-logo">
+            ${exp.logo ? `<img src="${exp.logo}" alt="${exp.company} Logo" />` : ''}
+        </div>
+        <div class="timeline-content">
+            <p class="timeline-date">${exp.date}</p>
+            <h3>${exp.position}</h3>
+            <p class="company-name"><strong>${exp.company}</strong></p>
+            <p class="experience-description">${exp.description}</p>
+            ${expandButton}
+            ${detailsHTML}
+        </div>
+    `;    
         
         timeline.appendChild(timelineItem);
     });

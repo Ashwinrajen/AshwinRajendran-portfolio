@@ -4,46 +4,51 @@
 
 const portfolioData = {
     projects: [
-        // {
-        //     id: 1,
-        //     icon: '🦾',
-        //     category: 'Autonomous Systems',
-        //     title: 'Autonomous Delivery Robot',
-        //     tech: 'ROS2, Python, SLAM, Computer Vision, LiDAR',
-        //     description: 'Developed a fully autonomous delivery robot capable of navigating complex indoor environments using advanced SLAM algorithms and real-time path planning.',
-        //     demoLink: '#',
-        //     githubLink: '#'
-        // },
-        // {
-        //     id: 2,
-        //     icon: '🦿',
-        //     category: 'Medical Robotics',
-        //     title: 'Robotic Prosthetic Arm',
-        //     tech: 'C++, EMG Sensors, Machine Learning, Arduino',
-        //     description: 'Created an affordable prosthetic arm with EMG-based control system, featuring 5 DOF and machine learning for gesture recognition.',
-        //     paperLink: '#',
-        //     videoLink: '#'
-        // },
-        // {
-        //     id: 3,
-        //     icon: '🏭',
-        //     category: 'Industrial Automation',
-        //     title: 'Smart Factory Robot Arm',
-        //     tech: 'PLC, Computer Vision, TensorFlow, ROS',
-        //     description: 'Implemented an intelligent robotic arm system for quality control in manufacturing, reducing defect rates by 40% using AI-powered visual inspection.',
-        //     caseStudyLink: '#',
-        //     specsLink: '#'
-        // },
-        // {
-        //     id: 4,
-        //     icon: '🚁',
-        //     category: 'Aerial Robotics',
-        //     title: 'Swarm Drone System',
-        //     tech: 'Python, ArduPilot, ROS, Computer Vision',
-        //     description: 'Designed a coordinated swarm of autonomous drones for search and rescue operations, featuring distributed decision-making and obstacle avoidance.',
-        //     docsLink: '#',
-        //     simulationLink: '#'
-        // }
+        {
+            id: 1,
+            image: "images/ConstructEye.png",
+            title: 'ConstructEye',
+            description: 'An AI-driven mobile robot that automates construction progress monitoring using semantic segmentation and 3D point cloud analysis, replacing manual inspections with a deep learning-powered digital twin system.',
+            githubLink: 'https://github.com/Ashwinrajen/ConstructEye',
+            isFeatured: true
+        },
+        {
+            id: 2,
+            image: "images/MarineVision.jpeg",
+            title: 'MarineVision',
+            description: 'A deep learning platform designed to enhance underwater videos for marine growth identification by processing footage through advanced models to improve clarity, contrast, and detail.',
+            githubLink: 'https://github.com/Ashwinrajen/MarineVision',
+            isFeatured: true
+        },
+        {
+            id: 3,
+            image: "images/WingSpan.png",
+            title: 'WingSpan',
+            description: 'WingSpan is a GPT-4-powered AI chatbot that simplifies bird identification and birdwatching in Singapore, making it easier to explore and appreciate the nation rich avian diversity.',
+            githubLink: 'https://github.com/Ashwinrajen/WingSpan',
+            isFeatured: true
+        },
+        {
+            title: 'ROS Projects',
+            isFeatured: false,
+            subprojects: [
+              { title: 'Machine Learning based automatic object classifier', link: 'https://github.com/Ashwinrajen/Auto-Object-classifier' },
+              { title: 'Generation of 3D mapping using Robot Operating System (ROS)', link: 'https://github.com/Ashwinrajen/3D-mapping-Robot-using-ROS' },
+              { title: 'Surveillance bot using ROS & raspicam', link: 'https://github.com/Ashwinrajen/Surveillance-Robot-using-ROS' }
+            ]
+        },
+        {
+            title: 'Other Projects',
+            isFeatured: false,
+            subprojects: [
+              { title: 'Motion model & 2D Object tracking using Kalman filters'},
+              { title: '3D Object detection and reconstruction using PS4 camera module'},
+              { title: 'Implementation of Path planning A* algorithm in ROS platform'},
+              { title: 'Mechatronics Arm development project'},
+              { title: 'IoT based Robotic projects'}
+            ]
+        }
+          
     ],
     
     research: [
@@ -77,6 +82,7 @@ const portfolioData = {
         {
             date: 'January 2024 – Present',
             position: 'Software Robotics Engineer',
+            logo: "images/Beex.png",
             company: 'BeeX, Marine Autonomous Systems, Singapore',
             description: 'Spearheaded the development and integration of advanced software and perception systems for Autonomous Underwater Vehicles (AUVs), supporting mission-critical deployments and defense-related marine robotics projects.',
             details: {
@@ -84,7 +90,6 @@ const portfolioData = {
                     'Lead prototyping, development, integration, testing, and deployment of software and hardware enhancements for Autonomous Underwater Vehicles (AUV), significantly improving overall system architecture, performance, and efficiency.',
                     'Conduct rigorous sea trials and optimize vehicle systems for precise underwater survey and inspection missions, ensuring high-quality data collection and reports to clients aligned with International Hydrographic Organization (IHO) standards.',
                     'Collaborate with Singapore government-funded organizations and UK-based underwater research institutes on marine robotics projects related to underwater defence.',
-                    'Collaboration with HTX, Singapore for safety and security projects in dealing with Ship Hull inspections, finding dead bodies at sea floor and Mine target detections.',
                     'Collaborated with HTX Singapore on safety and security initiative projects, including ship hull inspections, underwater body recovery operations, and mine detection on seafloor.',
                     'Provide technical leadership and on-site support to the Robot Support Team, ensuring seamless execution of deployments and trials.',
                     'Continuously enhance system architecture, ensuring scalability and adaptability to evolving mission requirements.'
@@ -98,9 +103,22 @@ const portfolioData = {
                 ]
             }
         },
+        {   
+            date: 'June 2024 – Present',
+            position: 'Research & Development Engineer Intern',
+            logo: "images/Continental.jpeg",
+            company: 'Continental, Singapore',
+            description: 'Investigating and Addressing Limitations of Interaction-aware Planning in End-to-End Learned Autonomous Driving Models',
+            details: {
+                'R&D on End-to-End Learning framework': [
+                    'Focused on state-of-the-art end-to-end autonomous driving frameworks by addressing architectural limitations and improving planning robustness through large-scale dataset integration and model performance enhancement.'
+                ]
+            }
+        },
         {
             date: 'June 2020 – December 2023',
             position: 'Software Robotics Engineer',
+            logo: "images/Lionsbot.png",
             company: 'Lionsbot International, Cleaning Robotics Systems, Singapore',
             description: 'Led software development and production scaling of multi-robot cleaning systems, with a focus on autonomy, machine vision, and real-world deployment. Delivered fully functional prototypes and enhanced perception pipelines.',
             details: {
@@ -127,6 +145,7 @@ const portfolioData = {
         {   
             date: 'Jan 2020 – Jun 2020',
             position: 'Junior Research Engineer',
+            logo: "images/Sutd.png",
             company: 'Singapore University of Technology and Design, Singapore',
             description: 'Contributed to the R&D of an autonomous staircase-cleaning robot, developing complete autonomy and perception stacks from simulation to real-world deployment using sensor fusion and deep learning.',
             details: {
@@ -139,12 +158,14 @@ const portfolioData = {
         {   
             date: 'May 2019 – Jun 2019',
             position: 'Robotics Research Intern',
+            logo: "images/Swaayatt.png",
             company: 'Swaayatt Robots, India',
             description: 'Designed and simulated a four-wheeled autonomous SUV in Gazebo using Ackermann steering, Pure Pursuit control and PID controller, while researching robot dynamics to implement precise trajectory tracking and optimized motion planning.'
         },
         {   
             date: 'Nov 2018 – Dec 2018',
             position: 'Embedded & Software Engineer Intern',
+            logo: "images/Aspagteq.png",
             company: 'Aspagteq Technology, India',
             description: 'Collaborated on the development of a ROS-based humanoid robot for autonomous student assistance in schools, integrating SLAM, differential drive navigation, and synchronized sensor modules through multi-language firmware programming (C++, Python, Embedded C).'
             
@@ -152,6 +173,7 @@ const portfolioData = {
         {   
             date: 'Aug 2017 – Feb 2018',
             position: 'Undergraduate Research Assistant',
+            logo: "images/Sastra.png",
             company: 'SASTRA Deemed to be University, India',
             description: 'Conducted AI-driven research in agricultural automation under Dr. Raja Purushothaman (Professor, School of Mechanical Engineering), developing a robotic platform for real-time crop image acquisition and plant disease detection using image processing techniques and ML/DL models (SVM, Random Forest, transfer learning); co-authored 3 research publications based on the work.'
         }
