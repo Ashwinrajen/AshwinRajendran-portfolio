@@ -887,6 +887,30 @@ nav.scrolled {
     transition: all 0.5s ease;
 }
 
+@media (max-width: 768px) {
+    .timeline-item {
+      flex-direction: column;
+      padding-left: 60px; /* Slightly less than desktop for spacing */
+    }
+  
+    .timeline-logo {
+      margin-top: 0.5rem;
+      margin-left: -15px; /* Align closer to the vertical line */
+      width: 50px;
+      height: 50px;
+    }
+  
+    .timeline-logo img {
+      object-fit: contain;
+    }
+  
+    .timeline-item::before {
+      top: 10px; /* Aligns the dot closer to the logo and heading */
+      left: 20px;
+    }
+  }
+  
+
 /* ==========================================
    RESPONSIVE STYLES
    ========================================== */
