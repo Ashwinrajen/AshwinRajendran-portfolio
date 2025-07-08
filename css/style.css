@@ -577,7 +577,7 @@ nav.scrolled {
 .timeline::before {
     content: '';
     position: absolute;
-    left: 60px;
+    left: 125px;
     width: 2px;
     height: 100%;
     background: var(--primary-color);
@@ -588,24 +588,23 @@ nav.scrolled {
     align-items: flex-start;
     gap: 1.5rem;
     padding: 2rem 0;
-    width: 100%;
-    margin-bottom: 3rem;
     position: relative;
-    padding-left: 100px;
-}
+    padding-left: 100px; /* Already present */
+  }
 
-/* Timeline logo circle replacing default dot */
 .timeline-logo {
-    position: absolute;
-    top: 2rem;
-    left: 30px; 
-    width: 60px;
-    height: 60px;
+    margin-top: 0.2rem; /* Bring it closer to align with date */
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
     border-radius: 50%;
     background: white;
     box-shadow: var(--shadow);
-    z-index: 1;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
 
 .timeline-logo img {
     width: 100%;
@@ -655,6 +654,42 @@ nav.scrolled {
     line-height: 1.8;
 }
 
+@media (max-width: 768px) {
+    .timeline-item {
+      display: flex;
+      flex-direction: row; /* Keep it horizontal */
+      align-items: flex-start;
+      padding-left: 60px;
+      gap: 1rem;
+    }
+  
+    .timeline-logo {
+      margin-top: 0.3rem;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+    }
+  
+    .timeline-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  
+    .timeline-item::before {
+      top: 1rem;
+      left: 20px;
+    }
+  
+    .timeline-content {
+      flex: 1;
+    }
+  
+    .timeline-date {
+      margin-top: 0.2rem;
+    }
+  }
+  
 /* ==========================================
    EDUCATION DETAILS STYLES
    ========================================== */
@@ -886,30 +921,6 @@ nav.scrolled {
     opacity: 1;
     transition: all 0.5s ease;
 }
-
-@media (max-width: 768px) {
-    .timeline-item {
-      flex-direction: column;
-      padding-left: 60px; /* Slightly less than desktop for spacing */
-    }
-  
-    .timeline-logo {
-      margin-top: 0.5rem;
-      margin-left: -15px; /* Align closer to the vertical line */
-      width: 50px;
-      height: 50px;
-    }
-  
-    .timeline-logo img {
-      object-fit: contain;
-    }
-  
-    .timeline-item::before {
-      top: 10px; /* Aligns the dot closer to the logo and heading */
-      left: 20px;
-    }
-  }
-  
 
 /* ==========================================
    RESPONSIVE STYLES
